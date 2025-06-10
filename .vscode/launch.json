@@ -6,9 +6,12 @@
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
-      "args": ["${relativeFile}"],
-      "cwd": "${workspaceRoot}",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+      "env": {
+        "TS_NODE_TRANSPILE_ONLY": "true"
+      },
+      "args": ["${file}"],
+      "cwd": "${workspaceFolder}",
       "internalConsoleOptions": "openOnSessionStart",
       "skipFiles": ["<node_internals>/**", "node_modules/**"]
     }
